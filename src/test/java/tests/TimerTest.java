@@ -3,21 +3,21 @@ package tests;
 import aquality.selenium.browser.AqualityServices;
 import org.testng.annotations.Test;
 import steps.WelcomePageSteps;
-import steps.registrationsteps.RegistrationPageSteps;
+import steps.RegistrationPageSteps;
 import utils.ConfigManager;
 
 public class TimerTest extends BaseTest{
-    private WelcomePageSteps welcomePageSteps;
-    private RegistrationPageSteps registrationPageSteps;
 
     @Test
     public void checkTimer() {
-        welcomePageSteps = new WelcomePageSteps();
-        registrationPageSteps = new RegistrationPageSteps();
-
+        logger.info("Navigate to welcome page");
         AqualityServices.getBrowser().goTo(ConfigManager.getTestDataString("welcomePageURL"));
+        WelcomePageSteps.assertIsWelcomePageOpen();
 
-        welcomePageSteps.clickLinkNextPage();
-        registrationPageSteps.isStartFromZero();
+        logger.info("Click link for navigate to login form");
+        WelcomePageSteps.linkNextPageClick();
+        RegistrationPageSteps.assertIsRegistrationPageOpen();
+
+        RegistrationPageSteps.assertIsTimerStartFromZero();
     }
 }
