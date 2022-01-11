@@ -17,18 +17,6 @@ public class RegistrationPageSteps extends RegistrationPage {
         Assert.assertEquals(currentTime, "00:00:00");
     }
 
-    public LoginFormSteps getLoginFormSteps(){
-        return new LoginFormSteps();
-    }
-
-    public AvatarAndInterestsFormSteps getAvatarAndInterestsFormSteps(){
-        return new AvatarAndInterestsFormSteps();
-    }
-
-    public PersonalDetailsFormSteps getPersonalDetailsFormSteps() {
-        return new PersonalDetailsFormSteps();
-    }
-
     public HelpFormSteps getHelpFormSteps(){
         return new HelpFormSteps();
     }
